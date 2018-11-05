@@ -16,31 +16,31 @@ Execute the following files in order, and the specific instructions are written 
 3. `parameter_sa.m`
 4. `parameter_i.m`
 
-After estimationg of the parameters this these four fiils, generate two new databases as the preparation for the next parameter training. The excuted files are `preprocess_loop.m`. Excuting this file with ` preprocess_acceleration;` will genearte the database for the estimation of Ma. And excuting this file with `preprocess_frequency;` will genearte the database for the estimation of Mf.
+After estimation of the parameters this these four files, generate two new databases as the preparation for the next parameter training. The executed files are `preprocess_loop.m`. Excuting this file with ` preprocess_acceleration;` will genearate the database for the estimation of Ma. And executing this file with `preprocess_frequency;` will genearate the database for the estimation of Mf.
 
-Last step is excute file 'estimation.m'. Excuting this file with `estimation_Mutipiler;`to estimate Ma, and excuting this file with `acceleration_and_frequency;`to estimate Mf.
+The last step is execute file 'estimation.m'. Executing this file with `estimation_Mutipiler;`to estimate Ma, and excuting this file with `acceleration_and_frequency;`to estimate Mf.
 
 ## Simulink Model
 
 Open the model `readacc_final_3.slx`.
-You can test this model with save dataset, when the block 'reading the logged signal' is connected.
+You can test this model with saved dataset, when the block 'reading the logged signal' is connected.
 You can also test this model with measured data from Arduino, when the blocks 'read signal' and 'calculating acceleration' are connected.
 Observe the variation of parameters in block 'Dashboard'.
 
-## Ohter Functions
+## Other Functions
 
 `simout_conversion.m` 
-Read and plot the raw signal
+Read and plot the raw signal.
 
 `FTT_1.m`
-Do fast Fourier transformation and plot the spectrum
+Do fast Fourier transformation and plot the spectrum.
 
 `curve_fitting.m` and `creatFit.m`
-find a sin-function to fit the data, so that the frequency of signal can be read directly from the function.
+Find a sin-function to fit the data, so that the frequency of signal can be read directly from the function.
 
 `estimation_single.m`
-display the result of a single iteration of the training of parameter m (multiplier)
+Display the result of a single iteration of the training of parameter m (multiplier)
 
 `\Data_Analyse\training\test.m`
- evaluate the recognition system with testing dataset.
+ Evaluate the recognition system with the testing dataset.
 
