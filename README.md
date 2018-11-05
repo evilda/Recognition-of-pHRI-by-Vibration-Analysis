@@ -30,17 +30,22 @@ Observe the variation of parameters in block 'Dashboard'.
 ## Other Functions
 
 `simout_conversion.m` 
+
 Read and plot the raw signal.
 
 `FTT_1.m`
+
 Do fast Fourier transformation and plot the spectrum.
 
 `curve_fitting.m` and `creatFit.m`
+
 Find a sin-function to fit the data, so that the frequency of signal can be read directly from the function.
 
 `estimation_single.m`
+
 Display the result of a single iteration of the training of parameter m (multiplier)
 
 `\Data_Analyse\training\test.m`
+
  Evaluate the recognition system with the testing dataset.
 
