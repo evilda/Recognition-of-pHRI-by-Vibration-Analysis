@@ -33,7 +33,7 @@ Open the model `readacc_final_3.slx`.
 You can test this model with saved dataset, when the block 'reading the logged signal' is connected.
 You can also test this model with measured data from Arduino, when the blocks 'read signal' and 'calculating acceleration' are connected.
 Observe the variation of parameters in block 'Dashboard'.
-
+ 
 ## Other Functions
 
 `simout_conversion.m` 
