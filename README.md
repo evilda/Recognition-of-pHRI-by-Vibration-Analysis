@@ -1,7 +1,7 @@
 # Arduino
 
 1. Download the arduino software "IDE", to correct codes and burn program into Arduino Uno
-2. Move the generating program "SparkFun_ADXL345_Example" to the place`user\Documents\Arduino`
+2. Move the generating program "SparkFun_ADXL345_Single_Output" to the place`user\Documents\Arduino`
 3. Open the program is software IDE
 
 # Recognition-of-pHRI-by-Vibration-Analysis
