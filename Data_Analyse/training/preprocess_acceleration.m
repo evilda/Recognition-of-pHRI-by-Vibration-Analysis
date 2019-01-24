@@ -11,14 +11,18 @@ mean_100 = mean(data(2,100:430)); % calculating the offset approximately
 data2 = abs(data(2,:)-mean_100);  %removing offset
 
 %%%% smoothing data of acceleration
-data3_a1 = movmean(data2,137);
-data3_a = movmean(data3_a1,139);
-data4_a = smooth(data3_a,0.03,'rloess');
+w_len = 150;
+data3 = movmean(data2,w_len);
+p = fix(w_len/2);
+data4 = data3(p:len);
+data4 = movmean(data4, w_len);
+data4 = [data3(1:(p-1)), data4];
+data4_a = smooth(data4,0.030,'rloess');
 
 %%%% calculating gradient %%%%
 
 gradient_a = zeros(1,len);
-windowlen = 160;
+windowlen = 158;
 ignore = 260;
 gradient_a = gradient1(data4_a, windowlen,ignore);
 

@@ -1,3 +1,5 @@
+% FFT analysis
+
 T = 0.003;             % Sampling period       
 Fs = 1/T;            % Sampling frequency                    
 

@@ -7,14 +7,14 @@
 mean_100 = mean(data(2,100:430));
 data2 = abs(data(2,:)-mean_100);
 
-data3_1 = movmean(data2,71);
-data3 = movmean(data3_1,111);
+data3_1 = movmedian(data2,30);
+data3 = movmean(data3_1,131);
 % subplot(2,1,1);
-figure
-plot(data(1,:),data3,'g')
-hold on;
+% figure
+% plot(data(1,:),data3,'g')
+% hold on;
 
-data4 = smooth(data3,0.005,'rloess');
+data4 = smooth(data3,0.03,'rloess');
 % subplot(2,1,1);
 plot(data(1,:),data4,'r')
 

@@ -11,14 +11,31 @@ mean_100 = mean(data(2,100:430)); % calculating the offset approximately
 data2 = abs(data(2,:)-mean_100);  %removing offset
 
 %%%% smoothing data of acceleration
-data3_a1 = movmean(data2,137);
-data3_a = movmean(data3_a1,139);
-s = [0.025, 0.05, 0.075];
-len = length(s);
-for i =1:len
+w_len = 150;
+data3 = movmean(data2,w_len);
+p = fix(w_len/2);
+data4 = data3(p:len);
+data4 = movmean(data4, w_len);
+data4 = [data3(1:(p-1)), data4];
+
+s = (0.03:0.001:0.04);% test sequence
+len2 = length(s);
+m = zeros(1,len2);
+t = zeros(1,len2);
+R = zeros(1,len2);
+% data5 = (smooth(data4,0.005,'rloess'))'; % smoothing
+% data5_1 = [data5(2:len) data5(len)];
+% delt = (data5_1-data5).^2;
+% R0 = sum(delt);
+R0 = 0.3947075;
+% 
+for i =1:len2
     tic;   % measuring computational time
-    data4_a = smooth(data3_a,s(i),'rloess'); % smoothing
-    plot(data(1,:),data4_a);
+    data5 = (smooth(data4,s(i),'rloess'))'; % smoothing
+    data5_1 = [data5(2:len) data5(len)];
+    delt = (data5_1-data5).^2;
+    R(i) = R0/sum(delt);
     t(i)=toc; % logging the computational time
-    hold on
+    m(i) = (1/t(i))*R(i);
 end
+plot(s,m); 

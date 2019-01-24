@@ -20,7 +20,7 @@ for j2 = begin:win_len:(len-win_len)
     if max_gradient_a>amultiplier*peak
         break
         elseif max_gradient_a>peak
-            peak = 0.5*(max_gradient_a+peak);
+            peak = 0.5*max_gradient_a+0.5*peak;
     end
 end
 Ans = data(1,j2+win_len-1); %return the error

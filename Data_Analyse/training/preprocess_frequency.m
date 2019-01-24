@@ -39,10 +39,17 @@ for i = 2:(length_s-1)
 end
 
 %%%% smoothing data of frequency %%%%
-data3_f1 = movmean(fre, 127);  % first moving average
-data3_f = movmean(data3_f1, 131); %second moving average
-data4_f = smooth(data3_f, 0.07,'rloess'); % RLoesss operator
+% data3_f1 = movmean(fre, 127);  % first moving average
+% data3_f = movmean(data3_f1, 131); %second moving average
+% data4_f = smooth(data3_f, 0.07,'rloess'); % RLoesss operator
 
+w_len = 100;
+data3 = movmean(fre,w_len);
+p = fix(w_len/2);
+data4 = data3(p:len);
+data4 = movmean(data4, w_len);
+data4 = [data3(1:(p-1)), data4];
+data4_f = smooth(data4,0.034,'rloess');
 %%%% calculating gradient %%%%
 
 gradient_a = zeros(1,len);

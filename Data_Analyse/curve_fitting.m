@@ -1,4 +1,5 @@
-% find a sin-function to fit the data
+% find a sin-function to fit the data, so that the frequency of signal can be read
+% directly from the function
 
 len = size(simout.Time);
 len = len(1);

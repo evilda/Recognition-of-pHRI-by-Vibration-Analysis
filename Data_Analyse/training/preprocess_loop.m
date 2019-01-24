@@ -8,7 +8,7 @@ for i_t = 1:len_dataset
     simout = dataset(i_t).database;
     realtime = dataset(i_t).rtime;
 %     preprocess_acceleration
-    preprocess_frequency; % data pre-processing
+    preprocess_frequency;    % data pre-processing
     simout.Data = gradient_a;
     dataset(i_t).database = simout;
 end

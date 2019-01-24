@@ -35,11 +35,22 @@ for i = 2:(length_s-1)
     end
 end
 
- prime = [53, 199; 127, 131; 59, 67; 157, 167; 191, 197]; % part of the prime numbers between [50 200]
- len = length(prime);
+
+p = [100,101,102]; % part of the numbers between [50 150]
+len = length(p);
+defer = zeros(1,len);
+plot([0,15],[12.7,12.7]);
+hold on
 for i = 1:len
-    data3 = movmean(data2, prime(i,1));
-    data4 = movmean(data3, prime(i,2));
+    data3 = movmean(fre, p(i));
+    p1 = fix(p(i)/2);
+    data4 = data3(p1: 5001);
+    data4 = movmean(data4, p(i));
+    data4 = [data3(1:(p1-1)), data4];
     plot(data(1,:),data4);
     hold on
 end
+hold off
+axis([7.484 7.49 12.68 12.71]); 
+[x,y] = ginput(len);
+d = 7.5876-x;
